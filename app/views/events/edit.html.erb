@@ -1,2 +1,10 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<h1>events#edit</h1>
+<%= form_for(@event) do |f| %>
+	<h5>name</h5>
+	<%= f.text_field :name %>
+	<h5>image</h5>
+	<%= f.attachment_field :image %>
+	<h5>password</h5>
+	<%= f.text_area :pass %>
+	<%= f.submit 'update' %>
+<% end %>
