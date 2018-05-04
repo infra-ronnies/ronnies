@@ -10,9 +10,8 @@ Rails.application.routes.draw do
      end
     end
 
-    resources :ushijimas, only: [:show] do
-    	get 'top'
-    end
+    resources :ushijimas, only: [:show] 
+    root "ushijimas#top"
 
 
 
