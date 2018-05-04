@@ -1,14 +1,19 @@
 <a href="/logout">logout</a>
 <%= @current_user.name %>
+<%= attachment_image_tag @user, :profile_image, :fill, 200, 200 %>
+<%= @current_user.one_talk %>
 
 
 <div class="one"></div>
 <div class="two">
 	<input type="button" value="sekiguchi">
-	<input type="button" value="shota">
+	<input type="button" value="shota" class="btn btn-default">
 </div>
 <div class="three">
-	ffff
+	<% @eventuser.each do |eventuser| %>
+		<%= eventuser.event.event_name %>
+		<%= attachment_image_tag eventuser.event, :image, :fill, 200, 200 %>
+	<% end %>
 </div>
 
 

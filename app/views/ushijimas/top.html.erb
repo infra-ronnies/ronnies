@@ -1,11 +1,5 @@
 ここにフォーム二個
-<%= form_tag(users_path) do %>
-	<label>ユーザー名</label>
-	<input name="name" value="<%= %>">
-	<label>パスワード</label>
-	<input type="password" name="password" value="<%=  %>">
-	<input type="submit" value="新規登録">
-<% end %>
+
 
 <%= form_tag("login") do %>
 	<label>ユーザー名</label>
@@ -15,6 +9,13 @@
 	<input type="submit" value="ログイン">
 <% end %>
 
-<% if session[:user_id] %>
-	aaa
+
+<%= form_for(@user) do |f| %>
+	<%= f.text_field :name %>
+	<input type="password" name="user[password]">
+	<%= f.attachment_field :profile_image %>
+	<%= f.text_area :one_talk %>
+	<%= f.submit :aa %>
 <% end %>
+
+
