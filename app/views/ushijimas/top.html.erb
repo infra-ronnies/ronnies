@@ -1,8 +1,8 @@
 ここにフォーム二個
 <%= form_tag(users_path) do %>
-	<p>ユーザー名</p>
+	<label>ユーザー名</label>
 	<input name="name" value="<%= @user.name %>">
-	<p>パスワード</p>
+	<label>パスワード</label>
 	<input type="password" name="password" value="<%= @user.password %>">
 	<input type="submit" value="新規登録">
 <% end %>
