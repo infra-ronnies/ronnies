@@ -5,7 +5,17 @@
 .main-background {
 	background-image: url("air-atmosphere-cloudiness-139366.jpg");
 	width: 100%;
-	height: auto;
+	/*のちにauto*/
+	height: 1000px;
+	background-size: cover;
 }
 
 
+@font-face {
+  font-family: 'naishomoji';
+  src: font-url("NaishoMoji-Regular.otf");
+}
+
+.main-title {
+	font-family: 'naishomoji';
+}

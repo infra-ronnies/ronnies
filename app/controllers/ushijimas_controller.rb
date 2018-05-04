@@ -5,7 +5,8 @@ class UshijimasController < ApplicationController
 
   end
 
-  def ushijima
-
+  def show
+  	@event = Event.find(params[:id])
+  	@users = @event.event_users
   end
 end
