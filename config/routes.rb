@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     	post 'update'
     end
     get "logout" => "users#logout"
+    post "login" => "users#login"
 
 
     resources :events, only: [:new, :create, :edit, :update] do
