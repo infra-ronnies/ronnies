@@ -3,5 +3,7 @@ class UshijimasController < ApplicationController
   end
 
   def ushijima
+  	@event =Event.find(params[:id])
+  	@users = @event.
   end
 end
