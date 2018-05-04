@@ -2,6 +2,9 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :create] do
     	post 'update'
     end
+    get "logout" => "users#logout"
+    post "login" => "users#login"
+
 
     resources :events, only: [:new, :create, :edit, :update] do
      resources :posts, only: [:show, :index, :edit, :update, :create, :destroy] do
