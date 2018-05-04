@@ -1,10 +1,10 @@
 <h1>events#new</h1>
 <%= form_for(@event) do |f| %>
-	<h5>name</h5>
-	<%= f.text_field :name %>
+	<%= f.label :name %>
+	<%= f.text_field :event_name %>
 	<h5>image</h5>
 	<%= f.attachment_field :image %>
 	<h5>password</h5>
-	<%= f.text_area :pass %>
+	<%= f.text_area :event_password %>
 	<%= f.submit 'Create' %>
 <% end %>
