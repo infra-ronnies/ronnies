@@ -15,18 +15,12 @@ class UsersController < ApplicationController
     end
 	end
 
-	def show
-		puts @current_user.id
-
-	end
-
 	def login
 		@user = User.find_by(name: params[:name], password: params[:password])
     if @user
       session[:user_id] = @user.id
       redirect_to user_path(@user)
   	else
-  		puts "aaa"
   		@name = params[:name]
       @password = params[:password]
     	redirect_to root_path
@@ -36,6 +30,11 @@ class UsersController < ApplicationController
 	def logout
 		session[:user_id] = nil
 		redirect_to root_path
+	end
+
+	def show
+		puts @current_user.id
+		
 	end
 
 end
