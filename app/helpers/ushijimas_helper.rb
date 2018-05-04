@@ -1,0 +1,2 @@
+module UshijimasHelper
+end
