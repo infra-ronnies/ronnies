@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-    resources :users, only: [:show] do
-    	post 'create'
+    resources :users, only: [:show, :create] do
     	post 'update'
     end
 
