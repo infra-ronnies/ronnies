@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-    resources :users, only: [:show] do
-    	post 'create'
+    resources :users, only: [:show, :create] do
     	post 'update'
     end
 
@@ -10,9 +9,8 @@ Rails.application.routes.draw do
      end
     end
 
-    resources :ushijimas, only: [:show] do
-    	get 'top'
-    end
+    resources :ushijimas, only: [:show] 
+    root "ushijimas#top"
 
 
 
