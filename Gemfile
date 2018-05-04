@@ -66,7 +66,6 @@ gem 'annotate'
 # モデルの上にカラム表示
 gem 'colorize_unpermitted_parameters'
 # ターミナルで許可されてないパラムスを色変えて表示
-gem 'devise'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'bootstrap-sass'
