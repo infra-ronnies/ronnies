@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     resources :ushijimas, only: [:show] 
     root "ushijimas#top"
+    get "ushijimas/top" => "ushijimas#top"
 
 
 

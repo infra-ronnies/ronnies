@@ -8,9 +8,15 @@ class ApplicationController < ActionController::Base
     @current_user = User.find_by(id: session[:user_id])
   end
 
-  # def forbid_login_user
-  #   if @current_user
-  #     redirect_to user_path(@current_user.id)
-  #   end
-  # end
+  def authenticate_user
+    if @current_user == nil
+      redirect_to root_path
+    end
+  end
+
+  def forbid_login_user
+    if @current_user
+      redirect_to user_path(@current_user.id)
+    end
+  end
 end
