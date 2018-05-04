@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	# before_action :forbid_login_user, {only: [:create]}
+	protect_from_forgery :except => [:login]
+	before_action :forbid_login_user, {only: [:create]}
 
 	def create
 		@user = User.new(
@@ -10,7 +11,7 @@ class UsersController < ApplicationController
     	session[:user_id] = @user.id
     	redirect_to user_path(@user)
     else
-    	render root_path
+    	redirect_to root_path
     end
 	end
 
@@ -24,19 +25,16 @@ class UsersController < ApplicationController
     if @user
       session[:user_id] = @user.id
       redirect_to user_path(@user)
+  	else
+  		puts "aaa"
+  		@name = params[:name]
+      @password = params[:password]
+    	redirect_to root_path
     end
-    redirect_to root_path
-  #   else
-  #     @name = params[:name]
-  #     @password = params[:password]
-  #     render root_path
-		# end
 	end
 
 	def logout
-		puts "aaaa"
 		session[:user_id] = nil
-		puts "aaa"
 		redirect_to root_path
 	end
 
