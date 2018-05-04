@@ -9,7 +9,8 @@ Rails.application.routes.draw do
      end
     end
 
-    resources :ushijimas, only: [:show] 
+    post "posts" => "posts#create"
+    resources :ushijimas, only: [:show]
     root "ushijimas#top"
 
 
