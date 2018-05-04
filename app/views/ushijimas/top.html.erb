@@ -1,4 +1,13 @@
-ここにフォーム二個
+<section class="top">
+    <div class="wrapper">
+        <h1 class="top-title">Ronnies</h1>
+        <p class="top-content">Ronniesは、一生忘れることのないサプライズを<br>演出するサイトです。関係のある沢山の人と<br>沢山の思い出を共有して、最高の別れを演出しましょう！</p>
+        <button type="button" class="btn-lg btn-info signup col-xs-6">新規登録</button>
+        <button type="button" class="btn-lg btn-primary login col-xs-6">ログイン</button>
+        <%= video_tag("sample.mp4", :autoplay => true, :loop => true, class: 'top-video')%>
+    </div>
+</section>
+
 
 
 <%= form_tag("login") do %>
