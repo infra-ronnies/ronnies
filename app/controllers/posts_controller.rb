@@ -11,13 +11,14 @@ class PostsController < ApplicationController
   def create
 	post = Post.new(post_params)
 	# post.user_id = current_user.id
+	post.event_id = params[:event_id]
 	post.save
 	redirect_to event_posts_path(post.event_id)
   end
 
   def show
   	@post = Post.find_by(params[:id])
-  	@user = User.find_by(id: @post.user_id)
+  	# @user = User.find_by(id: @post.user_id)
   end
 
   def edit
