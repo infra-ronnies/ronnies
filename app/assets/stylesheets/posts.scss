@@ -16,10 +16,12 @@
 .header_title{
 	border: 1.5px solid;
 	display: inline-block;
-	color: white;
+	color: black;
 	letter-spacing: .15em;
 	font-family: brandon-grotesque;
 	/*margin-left: 100px;*/
+	font-size: 23px;
+	width: 300px;
 	margin: 100px 0;
 	margin-top: 0;
 	padding: 25px;
@@ -57,10 +59,10 @@
 	margin: auto;
 	padding-top: 50px;
 }
-.post{
+.Post{
 	margin: 0;
 	display: inline-block;
-	width: 40%;
+	width: 60%;
 }
 .post_top{
 	font-family: brandon-grotesque;
@@ -68,6 +70,7 @@
 	font-size: 25px;
 	letter-spacing: .1em;
 	margin-top: 0;
+	margin-left: 40px;
 	width: 50%;
 	margin-right: 0;
 }
@@ -82,10 +85,11 @@
  position:relative;
  padding:40px;
  margin: auto;
- width: 30%;
+ width: 25%;
  color: #333333;/* 文字色 */
  background: #fff0f5;/*枠背景色*/ 
  box-shadow: 0 10px 6px -6px #999;
+ margin-right: 90px;
 }
 
 .title{
@@ -125,6 +129,22 @@
 	background-color: #eeeeee;
 	height: 800px;
 }
+td{
+	margin-right: 50px;
+}
+.left{
+	width: 50%;
+	float: left;
+}
+.right{
+	width: 50%;
+	float: right;
+	overflow-wrap: break-word;
+}
+
+
+
+
 
 .image{
 	width: 100px;

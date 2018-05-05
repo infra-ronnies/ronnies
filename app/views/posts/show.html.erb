@@ -7,4 +7,57 @@
 
 <div class="back">
 
+<div class='row'>
+  <div class='col-xs-1'></div>
+  <div class='col-xs-2'>
+  	<p><br><br></p>
+<h1 class="page-header"><strong>イベント名: </strong><%= @post.title %></h1>
+<h2>コメント<%= @post.post_comments.count %>件</h2>
+<%= form_for @post_comment, url: event_post_post_comments_path(@a, @post) do |f| %>
+<%= f.label :comment %>
+  <%= f.text_area :comment, class: 'col-xs-10' %>
+    <div class="actions row">
+    <h1><%= f.submit class: 'btn btn-primary col-xs-10'%></h1>
+  </div>
+<% end %>
+</div>
+<p><br><br></p>
+<div class='col-xs-8'>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>Profile_Image</th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Comment</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+<tbody>
+
+<% @post.post_comments.each do |post_comment| %>
+ <tr>
+      <td>
+  <br>
+  <%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img" %>
+  </td>
+  <td><%= post_comment.user.name %></td>
+  <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+  <td><%= post_comment.comment %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<p><br></p>
+
+
+</div>
+<div class='col-xs-1'>
+</div>
+
+
+
+
 </div>
