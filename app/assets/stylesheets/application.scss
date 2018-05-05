@@ -17,8 +17,6 @@
  @import "bootstrap";
 
 
-
-
  /* http://meyerweb.com/eric/tools/css/reset/
 v2.0 | 20110126
 License: none (public domain)
@@ -45,6 +43,7 @@ font: inherit;
 vertical-align: baseline;
 color: #000000;
 }
+
 .top{
 	position: fixed;
 	background-attachment: fixed;
@@ -116,7 +115,4 @@ color: #000000;
 	z-index: 1;
 	background-attachment: fixed;
 }
-
-
-
 
