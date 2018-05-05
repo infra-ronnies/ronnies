@@ -2,14 +2,14 @@
 	<h1 class="main-title">May all <%= @event.event_name%>'s <br>dreams come true.</h1>
 
 
-<!-- 年表 -->
-<body id ="body">
-<script>
-		$(function(){
-			$().timelinr({
-				arrowKeys: 'true'
-			})
-		});
+	<!-- 年表 -->
+	<body id ="body">
+		<script>
+			$(function(){
+				$().timelinr({
+					arrowKeys: 'true'
+				})
+			});
 		/* ----------------------------------
 jQuery Timelinr 0.9.55
 tested with jQuery v1.6+
@@ -90,7 +90,7 @@ jQuery.fn.timelinr = function(options){
 				} else if(howManyDates == 2) {
 					if($(settings.issuesDiv+' li:first-child').hasClass(settings.issuesSelectedClass)) {
 						$(settings.prevButton).fadeOut('fast');
-					 	$(settings.nextButton).fadeIn('fast');
+						$(settings.nextButton).fadeIn('fast');
 					}
 					else if($(settings.issuesDiv+' li:last-child').hasClass(settings.issuesSelectedClass)) {
 						$(settings.nextButton).fadeOut('fast');
@@ -158,7 +158,7 @@ jQuery.fn.timelinr = function(options){
 				} else if(howManyDates == 2) {
 					if($(settings.issuesDiv+' li:first-child').hasClass(settings.issuesSelectedClass)) {
 						$(settings.prevButton).fadeOut('fast');
-					 	$(settings.nextButton).fadeIn('fast');
+						$(settings.nextButton).fadeIn('fast');
 					}
 					else if($(settings.issuesDiv+' li:last-child').hasClass(settings.issuesSelectedClass)) {
 						$(settings.nextButton).fadeOut('fast');
@@ -216,7 +216,7 @@ jQuery.fn.timelinr = function(options){
 				} else if(howManyDates == 2) {
 					if($(settings.issuesDiv+' li:first-child').hasClass(settings.issuesSelectedClass)) {
 						$(settings.prevButton).fadeOut('fast');
-					 	$(settings.nextButton).fadeIn('fast');
+						$(settings.nextButton).fadeIn('fast');
 					}
 					else if($(settings.issuesDiv+' li:last-child').hasClass(settings.issuesSelectedClass)) {
 						$(settings.nextButton).fadeOut('fast');
@@ -239,20 +239,20 @@ jQuery.fn.timelinr = function(options){
 				if(settings.orientation=='horizontal') {
 					$(document).keydown(function(event){
 						if (event.keyCode == 39) {
-					       $(settings.nextButton).click();
-					    }
+							$(settings.nextButton).click();
+						}
 						if (event.keyCode == 37) {
-					       $(settings.prevButton).click();
-					    }
+							$(settings.prevButton).click();
+						}
 					});
 				} else if(settings.orientation=='vertical') {
 					$(document).keydown(function(event){
 						if (event.keyCode == 40) {
-					       $(settings.nextButton).click();
-					    }
+							$(settings.nextButton).click();
+						}
 						if (event.keyCode == 38) {
-					       $(settings.prevButton).click();
-					    }
+							$(settings.prevButton).click();
+						}
 					});
 				}
 			}
@@ -284,16 +284,16 @@ function autoPlay(){
 	}
 }
 
-	</script>
+</script>
 
 
 
-  <div id="timeline">
-		<ul id="dates">
-			<% @posts.each do |post| %>
-			<li><%= link_to post.post_date.strftime('%m%d'), event_post_path(post, anchor: post.id)  %></li>
+<div id="timeline">
+	<ul id="dates">
+		<% @posts.each do |post| %>
+		<li><%= link_to post.post_date.strftime('%m%d'), event_post_path(post, anchor: post.id)  %></li>
 
-			<% end %>
+		<% end %>
 <!-- 			<li><a href="#1930">1930</a></li>
 			<li><a href="#1944">1944</a></li>
 			<li><a href="#1950">1950</a></li>
@@ -308,19 +308,57 @@ function autoPlay(){
 			<% @posts.each do |post| %>
 			<li id=post.id>
 				<%= attachment_image_tag post.post_images[0], :image, class: "image image-circle" %>
-				<h1><%= post.post_date.strftime('%Y%m%d') %></h1>
+				<h1><%= post.title %></h1>
 
-<div class="event-space">
+				<div class="event-space">
 
-					<% @comments.each do |post_comment| %>
+
+<% post.post_comments.each do |post_comment| %>
+<table>
+	 <tr>
+      <td>
+  <br>
+  <%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img" %>
+  <%= post_comment.user.name %>:<%= post_comment.comment %>
+  </td><br>
+  <td></td>
+  </tr>
+</table>
+
+<% end %>
+
 					
-						<p><%= post_comment.comment %></p>
-						<% end %>
-			</div>
+				</div>
 
 			</li>
 			<% end -%>
 
+
+			<style type="text/css">
+			.event-space li {
+				height: 100px;
+				text-align: left;
+				padding-left: 20px;
+				position: relative;
+				margin: 10px 0;
+			}
+
+			.event-space span {
+				font-size: 22px;
+				display: inline-block;
+				color: white;
+			}
+
+			.event-space {
+				width: 400px;
+				height: 240px;
+				background-color: rgba(250, 250, 250, 0);
+				margin: 0 auto;
+				border: 2px solid rgba(255, 255, 255, 0.5);
+				border-radius: 20px;
+				overflow: scroll;
+			}
+		</style>
 
 
 
@@ -369,7 +407,7 @@ function autoPlay(){
 				<h1>2011</h1>
 				<p>Donec semper quam scelerisque tortor dictum gravida. In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit, sem diam ultrices mauris, eu consequat purus metus eu velit. Proin metus odio, aliquam eget molestie nec, gravida ut sapien. Phasellus quis est sed turpis sollicitudin venenatis sed eu odio. Praesent eget neque eu eros interdum malesuada non vel leo. Sed fringilla porta ligula.</p>
 			</li>
-	 -->	</ul>
+		-->	</ul>
 		<div id="grad_left"></div>
 		<div id="grad_right"></div>
 		<a href="#" id="next">+</a>
@@ -384,7 +422,7 @@ function autoPlay(){
 
 
 </div>
-  </div>
+</div>
 </div>
 
 
