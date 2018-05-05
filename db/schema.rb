@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504075128) do
+ActiveRecord::Schema.define(version: 20180504103707) do
 
   create_table "event_users", force: :cascade do |t|
     t.integer "event_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180504075128) do
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "event_password"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180504075128) do
     t.text "one_talk"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password"
   end
 
 end

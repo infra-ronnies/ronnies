@@ -22,7 +22,7 @@
 			<% @posts.each do |post| %>
 					<%= post.title %>
 					<%= link_to "show", "#" %>
-					<%= link_to "edit", 'events/#{@event_id}/post/.id/edit' %>
+					<%= link_to "edit", 'events/#{event_id}/post/.id/edit' %>
 					<%= link_to "destroy", "#" %>
 				</div>
 			<% end %>
@@ -34,7 +34,7 @@
 			<p>one talk</p>
 			<%= link_to "編集", "#" %>
 
-		  <%= form_for (@post) do |f| %>
+		  <%= form_for @post, url: "/events/#{@a}/posts" do |f| %>
 		    <h3>Title</h3>
 		      <%= f.text_field :title, class: "" %>
 		      <%= f.date_field :post_date, class: "" %>

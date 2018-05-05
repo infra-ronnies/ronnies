@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   	@posts = Post.all
   	@post = Post.new
   	@post.post_images.build
+  	@a = params[:event_id]
   	 # @post = Post.new
     # 3.times { @post.post_images.build }
   end
@@ -11,7 +12,7 @@ class PostsController < ApplicationController
 	post = Post.new(post_params)
 	# post.user_id = current_user.id
 	post.save
-	redirect_to event_posts_path
+	redirect_to event_posts_path(post.event_id)
   end
 
   def show
