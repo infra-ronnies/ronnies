@@ -6,11 +6,12 @@
 				<a href="/logout" style="color: white; font-size: 20px;">logout</a>
 			</div>
 			<div class="showmodal">
-				<%= attachment_image_tag @current_user, :profile_image, :fill, 50, 50, fallback: "/assets/noimage.png", class: "modalphoto" %>
+				<%= attachment_image_tag @current_user, :profile_image, :fill, 80, 80, fallback: "/assets/noimage.png", class: "modalphoto" %>
 				<div class="modalname">名前：<%= @current_user.name %></div>
 				<span class="modalintro">自己紹介文</span>
 				<div class="modalintroduce"><%= @current_user.one_talk %></div>
-				<input type="button" class="modalclass" id="modalid" value="編集">
+				<input type="button" class="modalclass btn btn-info" id="modalid" value="編集">
+				<div class="modol" style="cursor: pointer;display: inline-block;">戻る</div>
 
 
 
@@ -25,7 +26,7 @@
 						<%= f.text_area :one_talk %>
 					</div>
 					<div class="upsub">
-						<%= f.submit :"編集" %>
+						<%= f.submit :"編集", class: "btn btn-info" %>
 					</div>
 				<% end %>
 			</div>
@@ -73,6 +74,20 @@
 	 			i--;
 	 		}
 	 	});
+	 	$('.modol').click(function() {
+	 		if (i==0) {
+	 			$('.showmodal').css("display", "none");
+	 			i++;
+	 		} else {
+	 			$('#updateform').hide();
+	 			$('.modalphoto').show();
+	 			$('.modalname').show();
+	 			$('.modalintro').show();
+	 			$('.modalintroduce').show();
+	 			$('.modalclass').show();
+	 			i--;
+	 		}
+	 	})
 	 	$('#modalid').click(function() {
 	 		$('.modalphoto').hide();
 	 		$('.modalname').hide();
@@ -95,7 +110,7 @@
 
 
 .modalintroduce {
-	height: 150px;
+	height: 120px;
 	width: 200px;
 	margin: 0 auto;
 	word-break: break-word;
@@ -218,17 +233,19 @@
 .showbtn a {
 	display: inline-block;
 	color: rgba(255, 255, 255, 0.6);
-	border: 1px solid white;
+	border: 2px solid white;
 	padding: 18px 30px;
 	margin-top: 30px;
 	text-decoration: none;
-	transition: all .5s;
+	transition: all 1s;
 	font-size: 130%;
 }
 
 .showbtn a:hover {
-	color: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(255, 255, 255, 0.6);
+	font-size: 130%;
+	background-color: #4387E9;
+	border: none;
+	color: white;
 }
 
 

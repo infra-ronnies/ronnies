@@ -12,6 +12,17 @@
 	  <%= video_tag("sample.mp4", :autoplay => true, :loop => true, class: 'top-video')%>
 
 	  <%= form_tag("login", id: "signin", class: "center-block") do %>
+
+	  	<div class="form-field">
+				<input name="name" value="<%=  %>" placeholder="  Name">
+			</div>
+			<div class="form-field">
+				<input type="password" name="password" value="<%=  %>" placeholder="  Password">
+			</div>
+			<input type="submit" class="btn-lg btn-primary btn" value="ログイン">
+			<div class="top-back1" style="display: inline-block;cursor: pointer;">戻る</div>
+		<% end %>
+
 	  <div class="form-field">
 			<input name="name" value="<%=  %>" placeholder="  Name">
 	  </div>
@@ -23,6 +34,7 @@
 	  <% end %>
 
 
+
 		<%= form_for @user, html: {id: 'signup'} do |f| %>
 			<div class="form-field">
 				<%= f.text_field :name, :placeholder => "  Name" %>
@@ -32,8 +44,8 @@
 			</div>
 			<%= f.attachment_field :profile_image, class: "form-photo" %>
 			<%= f.text_area :one_talk, class: "form-textarea", :placeholder => "  Introduce" %>
-			<%= f.submit :"Sign Up" %>
-			<div class="top-back2">戻る</div>
+			<%= f.submit :"Sign Up", class: "btn-lg btn-info" %>
+			<div class="top-back2" style="display: inline-block;cursor: pointer">戻る</div>
 		<% end %>
 	</div>
 </section>
