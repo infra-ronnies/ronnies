@@ -11,6 +11,7 @@
 				<span class="modalintro">自己紹介文</span>
 				<div class="modalintroduce"><%= @current_user.one_talk %></div>
 				<input type="button" class="modalclass" id="modalid" value="編集">
+				<div class="modol" style="cursor: pointer;display: inline-block;">戻る</div>
 
 
 
@@ -73,6 +74,20 @@
 	 			i--;
 	 		}
 	 	});
+	 	$('.modol').click(function() {
+	 		if (i==0) {
+	 			$('.showmodal').css("display", "none");
+	 			i++;
+	 		} else {
+	 			$('#updateform').hide();
+	 			$('.modalphoto').show();
+	 			$('.modalname').show();
+	 			$('.modalintro').show();
+	 			$('.modalintroduce').show();
+	 			$('.modalclass').show();
+	 			i--;
+	 		}
+	 	})
 	 	$('#modalid').click(function() {
 	 		$('.modalphoto').hide();
 	 		$('.modalname').hide();
