@@ -25,7 +25,7 @@
 		font-family: 'Sonsie One', cursive;
 		font-size: 3.6rem;
 		text-align: center;
-		padding: 40px 0px 20px;
+		padding: 140px 0px 20px;
 		color: #fff;
 	}
 
@@ -34,11 +34,11 @@
 	/*年表*/
 
 
-	body {
+	#body {
 		background-image: url("air-atmosphere-cloudiness-139366.jpg");
 		width: 100%;
 		/*のちにauto*/
-		height: 1000px;
+		height: 1500px;
 		background-size: cover;
 		font-family: 'Sonsie One', cursive;
 		color: #fff;
@@ -203,4 +203,21 @@
 #prev.disabled {
 	opacity: 0.2;
 }
+
+
+
+.image_container {
+width: 100%;
+height: auto;
+}
+.prof_image_box {
+height: 500px;
+}
+ .even  {
+margin-top :200px;
+}
+.odd {
+  margin-bottom :200px;
+}
+
 

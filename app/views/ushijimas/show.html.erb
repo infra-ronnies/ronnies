@@ -1,9 +1,9 @@
 <div class="main-background">
-	<h1 class="main-title">May all <%= @event.event_name %>'s dreams come true.</h1>
+	<h1 class="main-title">May all <%= @event.event_name%>'s <br>dreams come true.</h1>
 
 
 <!-- 年表 -->
-<body>
+<body id ="body">
 <script>
 		$(function(){
 			$().timelinr({
@@ -18,7 +18,7 @@ Copyright 2011, CSSLab.cl
 Free under the MIT license.
 http://www.opensource.org/licenses/mit-license.php
 
-instructions: http://www.csslab.cl/2011/08/18/jquery-timelinr/
+intructions: http://www.csslab.cl/2011/08/18/jquery-timelinr/
 ---------------------------------- */
 
 jQuery.fn.timelinr = function(options){
@@ -302,6 +302,7 @@ function autoPlay(){
 			<li><a href="#2011">2011</a></li>
 		</ul>
 		<ul id="issues">
+
 			<li id="1900">
 				<img src="/assets/images/1.png" width="256" height="256" />
 				<h1>1900</h1>
@@ -363,4 +364,22 @@ function autoPlay(){
 	
 
 </div>
+
+
+
+<div class="container">
+  <div class="row">
+<div class="image_container">
+<div class="prof_image_box">
+<% @users.each do |user| %>
+    <div class="col-md-3 col-lg-3 col-xl-3 prof_image">
+  <%= attachment_image_tag user, :profile_image, :fill, 200, 200, html: {class: cycle('even', 'odd')}  %>
+  </div>
+  </div>
+<% end %>
+</div>
+  </div>
+</div>
+
+
 </body>	
