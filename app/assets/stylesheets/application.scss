@@ -43,6 +43,12 @@ font: inherit;
 vertical-align: baseline;
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .top{
 	position: fixed;
 	background-attachment: fixed;
