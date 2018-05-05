@@ -2,8 +2,6 @@ class EventsController < ApplicationController
   def new
   	@event = Event.new(event_params)
   	@event.save
-  	redirect_to event_posts_path(post.event_id)
-  	@event = Event.new
   end
 
   def create

@@ -1,26 +1,102 @@
 <section class="top">
-    <div class="wrapper">
-        <h1 class="top-title">Ronnies</h1>
-        <p class="top-content">Ronniesは、一生忘れることのないサプライズを<br>演出するサイトです。関係のある沢山の人と<br>沢山の思い出を共有して、最高の別れを演出しましょう！</p>
-        <button type="button" class="btn-lg btn-info signup col-xs-6">新規登録</button>
-        <button type="button" class="btn-lg btn-primary login col-xs-6">ログイン</button>
-        <%= video_tag("sample.mp4", :autoplay => true, :loop => true, class: 'top-video')%>
-    </div>
+	<div class="wrapper">
+	  <h1 class="top-title">Ronnies</h1>
+	  <p class="top-content">Ronniesは、一生忘れることのないサプライズを<br>演出するサイトです。関係のある沢山の人と<br>沢山の思い出を共有して、最高の別れを演出しましょう！</p>
+	  <div class="topflash">
+		  <% if flash[:notice] %>
+		  	<%= flash[:notice] %>
+		  <% end %>
+		</div>
+	  <button type="button" class="btn-lg btn-info signup col-xs-6">新規登録</button>
+	  <button type="button" class="btn-lg btn-primary login col-xs-6">ログイン</button>
+	  <%= video_tag("sample.mp4", :autoplay => true, :loop => true, class: 'top-video')%>
+
+	  <%= form_tag("login", id: "signin", class: "center-block") do %>
+	  	<div class="form-field">
+				<input name="name" value="<%=  %>" placeholder="  Name">
+			</div>
+			<div class="form-field">
+				<input type="password" name="password" value="<%=  %>" placeholder="  Password">
+			</div>
+			<input type="submit" value="ログイン">
+			<div class="top-back1">戻る</div>
+		<% end %>
+
+
+		<%= form_for @user, html: {id: 'signup'} do |f| %>
+			<div class="form-field">
+				<%= f.text_field :name, :placeholder => "  Name" %>
+			</div>
+			<div class="form-field">
+				<input type="password" name="user[password]" placeholder="  Password">
+			</div>
+			<%= f.attachment_field :profile_image, class: "form-photo" %>
+			<%= f.text_area :one_talk, class: "form-textarea", :placeholder => "  Introduce" %>
+			<%= f.submit :"Sign Up" %>
+			<div class="top-back2">戻る</div>
+		<% end %>
+	</div>
 </section>
 
-ここにフォーム二個
-<%= form_tag(users_path) do %>
-	<label>ユーザー名</label>
-	<input name="name" value="<%= %>">
-	<label>パスワード</label>
-	<input type="password" name="password" value="<%=  %>">
-	<input type="submit" value="新規登録">
-<% end %>
 
-<%= form_tag("login") do %>
-	<label>ユーザー名</label>
-	<input name="name" value="<%=  %>">
-	<label>パスワード</label>
-	<input type="password" name="password" value="<%=  %>">
-	<input type="submit" value="ログイン">
-<% end %>
+
+
+
+<script type="text/javascript">
+$(function() {
+	$('.signup').click(function() {
+		$('.topflash').hide();
+		$('.top-title').hide();
+		$('.top-content').hide();
+		$('.login').hide();
+		$('.signup').animate({
+			'top': '140px'
+		}, 1000);
+		setTimeout(function() {
+			$('#signup').show('slow');
+		}, 1000);
+		
+	})
+	$('.login').click(function() {
+		$('.topflash').hide();
+		$('.top-title').hide();
+		$('.top-content').hide();
+		$('.signup').hide();
+		$('.login').animate({
+			'top': '140px'
+		}, 1000);
+		setTimeout(function() {
+			$('#signin').show('slow');
+		}, 1000);
+	})
+	$('.top-back2').click(function() {
+		$('#signup').hide('slow');
+		$('.signup').animate({
+			'top': '480'
+		}, 1000);
+		setTimeout(function() {
+			$('.login').show('slow');
+			$('.top-title').show('slow');
+			$('.top-content').show('slow');
+		}, 1000);
+	})
+	$('.top-back1').click(function() {
+		$('#signin').hide('slow');
+		$('.login').animate({
+			'top': '525'
+		}, 1000);
+		setTimeout(function() {
+			$('.signup').show('slow');
+			$('.top-title').show('slow');
+			$('.top-content').show('slow');
+		}, 1000);
+	})
+})
+$('#signin').hide();
+$('#signup').hide();
+
+
+
+</script>
+
+
