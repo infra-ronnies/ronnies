@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .main-background {
 	background-image: url("air-atmosphere-cloudiness-139366.jpg");
 	width: 100;
@@ -9,6 +10,7 @@
 	height: 1000px;
 	background-size: cover;
 }
+
 /*外部フォント　：使用不可*/
 
 /*@font-face {
@@ -38,11 +40,13 @@
 		background-image: url("air-atmosphere-cloudiness-139366.jpg");
 		width: 100%;
 		/*のちにauto*/
-		height: 1500px;
+		height: 1000px;
 		background-size: cover;
+		background-position: center;
 		font-family: 'Sonsie One', cursive;
 		color: #fff;
 		font-size: 14px;
+
 	}
 
 	a {
@@ -78,9 +82,9 @@
 
 	#timeline {
 		width: 800px;
-		height: 350px;
+		height: 500px;
 		overflow: hidden;
-		margin: 100px auto;
+		margin: 70px auto;
 		position: relative;
 		background: url('images/dot.gif') left 45px repeat-x;
 	}
@@ -213,17 +217,17 @@
 
 
 .image_container {
-width: 100%;
-height: auto;
+	width: 100%;
+	height: auto;
 }
 .prof_image_box {
-height: 500px;
+	height: 500px;
 }
- .even  {
-margin-top :200px;
+.even  {
+	margin-top :200px;
 }
 .odd {
-  margin-bottom :200px;
+	margin-bottom :200px;
 }
 
 
