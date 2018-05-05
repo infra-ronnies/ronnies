@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   	@post = Post.new
   	@post.post_images.build
   	@a = params[:event_id]
+    @event = Event.find_by(id: params[:event_id])
   	 # @post = Post.new
     # 3.times { @post.post_images.build }
   end
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def show
-  	@post = Post.find_by(params[:id])
+  	@post = Post.find(params[:id])
     @a = params[:event_id]
     @post_comment = PostComment.new
   	# @user = User.find_by(id: @post.user_id)
