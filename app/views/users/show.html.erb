@@ -48,7 +48,7 @@
 					<%= link_to event_posts_path(eventuser.event.id) do %>
 						<li>
 							<div class="left">
-								<%= attachment_image_tag eventuser.event, :image, :fill, 100, 100 %>
+								<%= attachment_image_tag eventuser.event, :image, :fill, 100, 100, fallback: "/assets/noima.png" %>
 							</div>
 							<div class="right">
 								<span><%= eventuser.event.event_name %></span>
