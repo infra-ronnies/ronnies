@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree ../../../vendor/assets/jQuery-Timelinr-0.9.6/js/.
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
