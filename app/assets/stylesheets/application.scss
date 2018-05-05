@@ -41,7 +41,12 @@ border: 0;
 font-size: 100%;
 font: inherit;
 vertical-align: baseline;
-color: #000000;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .top{
@@ -63,20 +68,23 @@ color: #000000;
   	color: #fff;
  	font-size: 500%;
   	position: absolute;
-  	left: 41%;
+  	left: 35%;
   	top: 150px;
   	z-index: 1;
   	background-attachment: fixed;
+  	width: 30%;
 }
 .top-content {
 	font-family: serif;
   	color: #fff;
  	font-size: 200%;
   	position: absolute;
-  	left: 29.5%;
+  	left: 10%;
   	top: 280px;
   	z-index: 1;
   	background-attachment: fixed;
+  	width: 80%;
+  	text-align: center;
 }
 .topflash {
   top: 450px;
@@ -89,7 +97,7 @@ color: #000000;
 }
 .signup{
 	position: absolute;
-	left: 26%;
+	left: 25%;
 	top: 480px;
 	z-index: 1;
 	background-attachment: fixed;
@@ -110,7 +118,7 @@ color: #000000;
 
 .login{
 	position: absolute;
-	left: 26%;
+	left: 25%;
 	top: 525px;
 	z-index: 1;
 	background-attachment: fixed;

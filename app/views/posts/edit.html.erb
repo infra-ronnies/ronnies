@@ -1,2 +1,15 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="post_form">
+			<p>なかやま</p>
+			<p>one talk</p>
+			<%= link_to "編集", "#" %>
+
+		  <%= form_for (@post) do |f| %>
+		    <h3>Title</h3>
+		      <%= f.text_field :title, class: "" %>
+		      <%= f.date_field :post_date, class: "" %>
+		        <%#= f.fields_for :post_images do |image| %>
+		        	<%= f.attachment_field :post_images_images, multiple: true %>
+		      <%# end %>
+		      <%= f.submit "祝う", class: "fl_inst2" %>
+		  <% end %>
+		</div>
