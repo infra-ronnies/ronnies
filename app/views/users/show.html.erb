@@ -47,7 +47,7 @@
 					<% @eventuser.each do |eventuser| %>
 					<%= link_to event_posts_path(eventuser.event.id) do %>
 						<li>
-							<div class="left">
+							<div class="lefta">
 								<%= attachment_image_tag eventuser.event, :image, :fill, 100, 100, fallback: "/assets/noima.png" %>
 							</div>
 							<div class="right">
@@ -161,12 +161,12 @@
 	cursor: pointer;
 }
 
-.left, .right {
+.lefta, .right {
 	display: inline-block;
 }
 .right {
 	position: absolute;
-	padding-left: 20px;
+	padding-left: 5px;
 	top: 22px;
 }
 
