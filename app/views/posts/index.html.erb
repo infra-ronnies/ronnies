@@ -10,7 +10,7 @@
 			<div class="event_top"><span>EVENT</span>
 
 				<div class="left">
-					<%= attachment_image_tag , :image, :fill, 100, 100  %>
+					<%= attachment_image_tag @event, :image, :fill, 100, 100  %>
 
 				</div>
 				<div class="right">
@@ -31,7 +31,7 @@
 					<tr>
 						<td><%= post.title %></td>
 						<td><%= post.post_date %></td>
-						<td class=""><%= link_to "post_show",  event_post_path(post, @a) %></td>
+						<td class=""><%= link_to "post_show",  event_post_path(@a ,post) %></td>
 						<td class=""><%= link_to "edit", edit_event_post_path(post, @a) %></td>
 						<td class=""><%= link_to "destroy", event_post_path(post, @a), method: :delete %></td>
 
