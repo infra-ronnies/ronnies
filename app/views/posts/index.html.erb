@@ -8,13 +8,19 @@
 	<div class="back">
 		<div class="post_index">
 			<div class="event_top"><span>EVENT</span>
+
 				<div class="left">
+<<<<<<< HEAD
 					
+=======
+					<%= attachment_image_tag @event, :image, :fill, 100, 100  %>
+>>>>>>> 0c6d67a2d895cb51277a6feab1b7c3fe1212635b
 
 				</div>
 				<div class="right">
 					<p>特別な1日を届けよう。。<br>また、必ず会うために。</p>
 				</div>
+
 			</div>
 		</div>
 
@@ -29,7 +35,7 @@
 					<tr>
 						<td><%= post.title %></td>
 						<td><%= post.post_date %></td>
-						<td class=""><%= link_to "post_show",  event_post_path(post, @a) %></td>
+						<td class=""><%= link_to "post_show",  event_post_path(@a ,post) %></td>
 						<td class=""><%= link_to "edit", edit_event_post_path(post, @a) %></td>
 						<td class=""><%= link_to "destroy", event_post_path(post, @a), method: :delete %></td>
 

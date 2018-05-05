@@ -4,7 +4,7 @@ class PostCommentsController < ApplicationController
       comment = @current_user.post_comments.new(post_comment_params)
       comment.post_id = post.id
       comment.save
-      redirect_to event_post_path(post, post.event.id)
+      redirect_to event_post_path(post.event.id, post)
 	end
 
 	def destroy

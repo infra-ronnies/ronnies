@@ -1,3 +1,29 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.background-image{
+		background-image: url("air-atmosphere-cloudiness-139366.jpg");
+        width: 100%;
+        /*のちにauto*/
+        height: 700px;
+        background-size: cover;
+        font-family: 'Sonsie One', cursive;
+        color: #fff;
+        font-size: 20px;
+    }
+.a{
+	font-size: 40px;
+}
+.b{
+	font-size: 15px;
+}
+.form-group{
+	height: 50px;
+}
+.margin-top{
+	margin-top: 40px;
+}
+.margin{
+	margin: 30px 0;
+}

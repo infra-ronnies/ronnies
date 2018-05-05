@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	protect_from_forgery :except => [:login]
 	before_action :forbid_login_user, {only: [:create]}
+	before_action :authenticate_user, {only: [:show]}
 
 	def create
 		user = User.new(user_params)

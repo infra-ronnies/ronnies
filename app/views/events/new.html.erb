@@ -1,12 +1,16 @@
+<body>
+  <div class="background-image">
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
-	<h2>New Event</h2>
+  <div class="margin">
+  <div class="a">
+	 <h2>New Event</h2>
+  </div></div>
 	<%= form_for(@event) do |f| %>
  	<div class="form-group">
             <div class="col-md-10">
-    
-              <label for="event_name" class="col-md-2 control-label">
-                <%= f.label :name %>
+              <label for="event_name" class="col-md-8 control-label">
+                <%= f.label :"Event's Name" %>
                 <%= f.text_field :event_name, class: "form-control" %>
               </label>
             </div>
@@ -16,7 +20,9 @@
           <div class="col-md-10">
         	  <label for="event_name" class="col-md-2 control-label">
 				<%= f.label :image %>
-				<%= f.attachment_field :image, class: "img-circle" %>
+        <div class="b">
+				  <%= f.attachment_field :image, class: "img-circle" %>
+        </div>
             </label>
           </div>
     </div>
@@ -24,19 +30,20 @@
 	 	<div class="form-group">
             <div class="col-md-10">
 
-              <label for="input_password" class="col-md-2 control-label">
-                <%= f.label :password %>
-                <%= f.text_field :event_password, class: "form-control" %>
+              <label for="input_password" class="col-md-8 control-label">
+                <%= f.label :"Event's password" %>
+                <%= f.text_field :event_password, class: "form-control",:placeholder => "６文字以上" %>
               </label>
             </div>
+          </div>
+      <div class="margin-top">
   	<div class="col-md-4 col-md-offset-4">
-	 <button type="submit" class="btn btn-primary btn-block">
-	 	<%= f.submit 'Create' %>
-	 </button>
+        <%= f.submit 'Create', class: "btn btn-primary btn-block" %>
   </div>
 	</div>
 <% end %>
 </div>
-
+</div>
+</div></body>
 
 
