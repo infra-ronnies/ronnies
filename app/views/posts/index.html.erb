@@ -8,10 +8,13 @@
 		
 		<div class="post_index">
 			<div class="event_top"><span>EVENT</span>
-				画像はいる
-				<p>なかやまおめでとう(eventの名前)</p>
-				hogehogehogehogehogehogehogehogehogehogehogehogehogehoge<br>
-				hogehogehogehogehogehogehogehogehogehogehogehogehogehoge
+				<div class="left">
+					<%= attachment_image_tag @event, :image, :fill, 100, 100  %>
+
+				</div>
+				<div class="right">
+					<p>特別な1日を届けよう。。<br>また、必ず会うために。2年後、シャボンディー諸島で！！</p>
+				</div>
 			</div>
 		</div>
 
@@ -20,10 +23,21 @@
 			<div class="Post">
 				<h2 class="post_top">Post List</h2>
 			<% @posts.each do |post| %>
-					<%= post.title %>
-					<%= link_to "show", "#" %>
-					<%= link_to "edit", 'events/#{event_id}/post/.id/edit' %>
-					<%= link_to "destroy", "#" %>
+			<table class="table">
+				<thead class="thead-dark">
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= post.title %></td>
+						<td><%= post.post_date %></td>
+						<td class=""><%= link_to "post_show",  event_post_path(post, @a) %></td>
+						<td class=""><%= link_to "edit", edit_event_post_path(post, @a) %></td>
+						<td class=""><%= link_to "destroy", event_post_path(post, @a), method: :delete %></td>
+
+						<td><span class="fas fa-mail"></span></td>
+					</tr>
+				</tbody>
+			</table>
 				</div>
 			<% end %>
 		</div>
@@ -32,7 +46,7 @@
 			<span class="title">メッセージを送ろう！！</span>
 			<p>なかやま</p>
 			<p>one talk</p>
-			<%= link_to "編集", "#" %>
+			<%= link_to "ユーザ", user_path(@current_user) %>
 
 		  <%= form_for @post, url: "/events/#{@a}/posts" do |f| %>
 		    <h3>Title</h3>
@@ -46,3 +60,4 @@
 		</div>
 	</div>
 </article>
+
