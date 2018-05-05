@@ -9,12 +9,10 @@ class UshijimasController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
-		@users = []
-		@event_users = @event.event_users
-		@event_users.each do |event_user|
-			@user = event_user.user
-			@users << @user
+		@posts = Post.where(event_id: @event.id).order(post_date: :asc)
+		@posts.each do |post|
+			@comments = post.post_comments.limit(100).order(:created_at)
 		end
-		@posts = @event.posts
+
 	end
 end
