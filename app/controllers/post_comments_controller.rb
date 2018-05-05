@@ -7,6 +7,11 @@ class PostCommentsController < ApplicationController
       redirect_to event_post_path(post, post.event.id)
 	end
 
+	def destroy
+	  @comment = @current_user.post_comments.find_by(id: params[:id])
+	  @comment.destroy
+	end
+
 	private
     def post_comment_params
     params.require(:post_comment).permit(:user_id, :post_id, :comment)
