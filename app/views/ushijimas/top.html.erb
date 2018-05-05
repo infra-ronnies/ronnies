@@ -18,7 +18,7 @@
 			<div class="form-field">
 				<input type="password" name="password" value="<%=  %>" placeholder="  Password">
 			</div>
-			<input type="submit" value="ログイン">
+			<input type="submit" class="btn-lg btn-primary btn" value="ログイン">
 			<div class="top-back1" style="display: inline-block;cursor: pointer;">戻る</div>
 		<% end %>
 
@@ -32,7 +32,7 @@
 			</div>
 			<%= f.attachment_field :profile_image, class: "form-photo" %>
 			<%= f.text_area :one_talk, class: "form-textarea", :placeholder => "  Introduce" %>
-			<%= f.submit :"Sign Up" %>
+			<%= f.submit :"Sign Up", class: "btn-lg btn-info" %>
 			<div class="top-back2" style="display: inline-block;cursor: pointer">戻る</div>
 		<% end %>
 	</div>
