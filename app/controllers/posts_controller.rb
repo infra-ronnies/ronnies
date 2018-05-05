@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   	@post = Post.new
   	@post.post_images.build
   	@a = params[:event_id]
+
     @event = Event.find_by(id: params[:event_id])
+
   	 # @post = Post.new
     # 3.times { @post.post_images.build }
   end
