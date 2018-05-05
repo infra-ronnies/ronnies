@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     	session[:user_id] = user.id
     	redirect_to user_path(user)
     else
+    	flash[:notice] = "NameとPasswordを正しく入力してください"
     	redirect_to root_path
     end
 	end
@@ -18,8 +19,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
   	else
-  		@name = params[:name]
-      @password = params[:password]
+  		flash[:notice] = "NameとPasswordを正しく入力してください"
     	redirect_to root_path
     end
 	end
@@ -32,7 +32,11 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find_by(id: @current_user.id)
 		@eventuser = EventUser.where(user_id: @current_user.id)
-		
+		if @eventuser.count == 0
+			gon.count = 0
+		else
+			gon.count = 1
+		end
 
 	end
 
