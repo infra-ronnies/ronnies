@@ -2,13 +2,19 @@ class UshijimasController < ApplicationController
 
 	# before_action :forbid_login_user, {only: [:top]}
 
-  def top
-  	@user = User.new
+	def top
+		@user = User.new
 
-  end
+	end
 
-  def show
-  	@event = Event.find(params[:id])
-  	# @users = @event.event_users
-  end
+	def show
+		@event = Event.find(params[:id])
+		@users = []
+		@event_users = @event.event_users
+		@event_users.each do |event_user|
+			@user = event_user.user
+			@users << @user
+		end
+		@posts = @event.posts
+	end
 end
