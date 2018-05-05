@@ -44,6 +44,12 @@ vertical-align: baseline;
 color: #000000;
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .top{
 	position: fixed;
 	background-attachment: fixed;
