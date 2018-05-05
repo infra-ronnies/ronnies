@@ -2,7 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/**/
+
+.main-background {
+	background-image: url("air-atmosphere-cloudiness-139366.jpg");
+	width: 100;
+	/*のちにauto*/
+	height: 1000px;
+	background-size: cover;
+}
+
 /*外部フォント　：使用不可*/
 
 /*@font-face {

@@ -1,6 +1,6 @@
 class UshijimasController < ApplicationController
 
-	# before_action :forbid_login_user, {only: [:top]}
+	before_action :forbid_login_user, {only: [:top]}
 
 	def top
 		@user = User.new
