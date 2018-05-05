@@ -1,0 +1,48 @@
+<article id="home">
+<div class="hero">
+	<div class="pageNo">
+		<h1 class="header_title"><span>Post List</span></h1>
+	</div>
+</div>
+	<div class="back">
+		
+		<div class="post_index">
+			<div class="event_top"><span>EVENT</span>
+				画像はいる
+				<p>なかやまおめでとう(eventの名前)</p>
+				hogehogehogehogehogehogehogehogehogehogehogehogehogehoge<br>
+				hogehogehogehogehogehogehogehogehogehogehogehogehogehoge
+			</div>
+		</div>
+
+		<div class="post_index">
+			
+			<div class="Post">
+				<h2 class="post_top">Post List</h2>
+			<% @posts.each do |post| %>
+					<%= post.title %>
+					<%= link_to "show", "#" %>
+					<%= link_to "edit", 'events/#{event_id}/post/.id/edit' %>
+					<%= link_to "destroy", "#" %>
+				</div>
+			<% end %>
+		</div>
+
+		<div class="post_form">
+			<span class="title">メッセージを送ろう！！</span>
+			<p>なかやま</p>
+			<p>one talk</p>
+			<%= link_to "編集", "#" %>
+
+		  <%= form_for @post, url: "/events/#{@a}/posts" do |f| %>
+		    <h3>Title</h3>
+		      <%= f.text_field :title, class: "" %>
+		      <%= f.date_field :post_date, class: "" %>
+		        <%#= f.fields_for :post_images do |image| %>
+		        	<%= f.attachment_field :post_images_images, multiple: true %>
+		      <%# end %>
+		      <%= f.submit "祝う", class: "fl_inst2" %>
+		  <% end %>
+		</div>
+	</div>
+</article>

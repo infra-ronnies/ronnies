@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   def new
   	@event = Event.new
   end
+
   def create
   	event = Event.new(event_params)
   	if event.save
@@ -19,7 +20,8 @@ class EventsController < ApplicationController
   	event.update(event_params)
   	redirect_to event_posts_path(event.id)
   end
-  private
+
+private
   def event_params
   	params.require(:event).permit(:event_name, :image, :event_password)
   end
