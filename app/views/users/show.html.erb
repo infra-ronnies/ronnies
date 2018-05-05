@@ -2,15 +2,40 @@
 	<div class="showup">
 		<div class="showcontainer clearfix">
 			<div class="show-right">
-				<span class="fas fa-male human"></span>
+				<span class="fas fa-male human"></span><br>
+				<a href="/logout" style="color: white; font-size: 20px;">logout</a>
 			</div>
-			<div class="showmodal"></div>
+			<div class="showmodal">
+				<%= attachment_image_tag @current_user, :profile_image, :fill, 80, 80, fallback: "/assets/noimage.png", class: "modalphoto" %>
+				<div class="modalname">名前：<%= @current_user.name %></div>
+				<span class="modalintro">自己紹介文</span>
+				<div class="modalintroduce"><%= @current_user.one_talk %></div>
+				<input type="button" class="modalclass btn btn-info" id="modalid" value="編集">
+				<div class="modol" style="cursor: pointer;display: inline-block;">戻る</div>
+
+
+
+				<%= form_for @user, html: {id: 'updateform'} do |f| %>
+					<div class="updatename">
+						<label>名前：</label><%= f.text_field :name %>
+					</div>
+					<div class="updatephoto">
+						<%= f.attachment_field :profile_image%>
+					</div>
+					<div class="updateone">
+						<%= f.text_area :one_talk %>
+					</div>
+					<div class="upsub">
+						<%= f.submit :"編集", class: "btn btn-info" %>
+					</div>
+				<% end %>
+			</div>
 			<h1>Your Ronnies</h1>
 			<p>Life is the best story</p>
 			<div class="showbtn">
 				<a href="/events/new">Create Event</a>
 			</div>
-			<a href="/logout">logout</a>
+			
 
 		</div>
 	</div>
@@ -37,20 +62,78 @@
 </main>
 
 <script type="text/javascript">
+	$(function() {
+		var i = 0;
+		$('#updateform').hide();
+		$('.human').click(function() {
+			if (i==0) {
+	 			$('.showmodal').css("display", "block");
+	 			i++;
+	 		} else {
+	 			$('.showmodal').css("display", "none");
+	 			i--;
+	 		}
+	 	});
+	 	$('.modol').click(function() {
+	 		if (i==0) {
+	 			$('.showmodal').css("display", "none");
+	 			i++;
+	 		} else {
+	 			$('#updateform').hide();
+	 			$('.modalphoto').show();
+	 			$('.modalname').show();
+	 			$('.modalintro').show();
+	 			$('.modalintroduce').show();
+	 			$('.modalclass').show();
+	 			i--;
+	 		}
+	 	})
+	 	$('#modalid').click(function() {
+	 		$('.modalphoto').hide();
+	 		$('.modalname').hide();
+	 		$('.modalintro').hide();
+	 		$('.modalintroduce').hide();
+	 		$('.modalclass').hide();
+	 		$('#updateform').show();
+	 	})
+	})
  if(gon.count == 0) {
  	$('.event-space').hide();
  } else {
  	$('.event-space').show();
  }
- $(function() {
- 	$('.human').click(function() {
-
- 	})
- })
+ 	
 
 </script>
 
 <style type="text/css">
+
+
+.modalintroduce {
+	height: 120px;
+	width: 200px;
+	margin: 0 auto;
+	word-break: break-word;
+}
+
+.modalclass {
+
+	bottom: 5;
+}
+
+.modalintro {
+	margin-top: 20px;
+	font-size: 30px;
+	display: block;
+}
+
+.modalname {
+	font-size: 30px;
+}
+
+.modalphoto, .updatename, .updatephoto, .updateone, .upsub {
+	margin-top: 20px;
+}
 
 .showmodal {
 	width: 280px;
@@ -64,6 +147,7 @@
 	position: fixed;
 	border-radius: 20px;
 	border: 1px solid black;
+	display: none;
 }
 
 .show-right {
@@ -149,17 +233,19 @@
 .showbtn a {
 	display: inline-block;
 	color: rgba(255, 255, 255, 0.6);
-	border: 1px solid white;
+	border: 2px solid white;
 	padding: 18px 30px;
 	margin-top: 30px;
 	text-decoration: none;
-	transition: all .5s;
+	transition: all 1s;
 	font-size: 130%;
 }
 
 .showbtn a:hover {
-	color: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(255, 255, 255, 0.6);
+	font-size: 130%;
+	background-color: #4387E9;
+	border: none;
+	color: white;
 }
 
 

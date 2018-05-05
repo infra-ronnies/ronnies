@@ -7,4 +7,25 @@
 
 <div class="back">
 
+<h1><strong>イベント名: </strong><%= @post.title %></h1>
+<h2>コメント<%= @post.post_comments.count %>件</h2>
+<%= form_for @post_comment, url: event_post_post_comments_path(@a, @post) do |f| %>
+  <h1><%= f.text_field :comment %>
+  <%= f.submit "送信する" %></h1>
+<% end %>
+
+<% @post.post_comments.each do |post_comment| %>
+  <br>
+  <p><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img" %>
+  <%= post_comment.user.name %>
+  <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+  <%= post_comment.comment %></p>
+<% end %>
+<p><br></p>
+
+
+
+
+
+
 </div>

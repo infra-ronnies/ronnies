@@ -18,6 +18,8 @@ class PostsController < ApplicationController
 
   def show
   	@post = Post.find_by(params[:id])
+    @a = params[:event_id]
+    @post_comment = PostComment.new
   	# @user = User.find_by(id: @post.user_id)
   end
 

@@ -40,6 +40,14 @@ class UsersController < ApplicationController
 
 	end
 
+	def update
+		user = User.find_by(id: @current_user.id)
+		user.update(user_params)
+		user.save
+
+		redirect_to user_path(@current_user.id)
+	end
+
 	private
 
 	def user_params
