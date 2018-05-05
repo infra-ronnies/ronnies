@@ -1,10 +1,39 @@
-<h1>events#edit</h1>
-<%= form_for(@event) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :event_name %>
-	<h5>image</h5>
-	<%= f.attachment_field :image %>
-	<h5>password</h5>
-	<%= f.text_area :event_password %>
-	<%= f.submit 'update' %>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+	<h2>Edit Event</h2>
+	<%= form_for(@event) do |f| %>
+ 	<div class="form-group">
+            <div class="col-md-10">
+    
+              <label for="event_name" class="col-md-2 control-label">
+                <%= f.label :name %>
+                <%= f.text_field :event_name, class: "form-control" %>
+              </label>
+            </div>
+     </div>
+
+    <div class="form-group">
+          <div class="col-md-10">
+        	  <label for="event_name" class="col-md-2 control-label">
+				<%= f.label :image %>
+				<%= f.attachment_field :image, class: "img-circle" %>
+            </label>
+          </div>
+    </div>
+
+	 	<div class="form-group">
+            <div class="col-md-10">
+
+              <label for="input_password" class="col-md-2 control-label">
+                <%= f.label :password %>
+                <%= f.text_field :event_password, class: "form-control" %>
+              </label>
+            </div>
+  	<div class="col-md-4 col-md-offset-4">
+	 <button type="submit" class="btn btn-primary btn-block">
+	 	<%= f.submit 'Update' %>
+	 </button>
+  </div>
+	</div>
 <% end %>
+</div>
