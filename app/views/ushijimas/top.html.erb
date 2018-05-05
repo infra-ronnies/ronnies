@@ -6,21 +6,21 @@
 		  <% if flash[:notice] %>
 		  	<%= flash[:notice] %>
 		  <% end %>
-		</div>
+	  </div>
 	  <button type="button" class="btn-lg btn-info signup col-xs-6">新規登録</button>
 	  <button type="button" class="btn-lg btn-primary login col-xs-6">ログイン</button>
 	  <%= video_tag("sample.mp4", :autoplay => true, :loop => true, class: 'top-video')%>
 
 	  <%= form_tag("login", id: "signin", class: "center-block") do %>
-	  	<div class="form-field">
-				<input name="name" value="<%=  %>" placeholder="  Name">
-			</div>
-			<div class="form-field">
-				<input type="password" name="password" value="<%=  %>" placeholder="  Password">
-			</div>
-			<input type="submit" value="ログイン">
-			<div class="top-back1">戻る</div>
-		<% end %>
+	  <div class="form-field">
+			<input name="name" value="<%=  %>" placeholder="  Name">
+	  </div>
+	  <div class="form-field">
+		<input type="password" name="password" value="<%=  %>" placeholder="  Password">
+	  </div>
+		<input type="submit" value="ログイン">
+		<div class="top-back1">戻る</div>
+	  <% end %>
 
 
 		<%= form_for @user, html: {id: 'signup'} do |f| %>
