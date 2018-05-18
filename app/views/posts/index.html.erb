@@ -1,9 +1,9 @@
 <article id="home">
-<div class="hero">
-	<div class="pageNo">
-		<h1 class="header_title"><span>Post List</span></h1>
+	<div class="hero">
+		<div class="pageNo">
+			<h1 class="header_title"><span>Post List</span></h1>
+		</div>
 	</div>
-</div>
 
 	<div class="back">
 		<div class="post_index">
@@ -15,49 +15,57 @@
 				</div>
 				<div class="right">
 					<p>特別な1日を届けよう。。<br>また、必ず会うために。</p>
+					<%= link_to "確認ページ", ushijima_path(@event.id), class: "btn btn-info"%>
 				</div>
 
 			</div>
 		</div>
-
-		<div class="post_index">
-			<div class="Post">
-				<h2 class="post_top">Post List</h2>
-			<% @posts.each do |post| %>
-			<table class="table">
-				<thead class="thead-dark">
-				</thead>
-				<tbody>
-					<tr>
-						<td><%= post.title %></td>
-						<td><%= post.post_date %></td>
-						<td class=""><%= link_to "post_show",  event_post_path(@a ,post) %></td>
-						<td class=""><%= link_to "edit", edit_event_post_path(post, @a) %></td>
-						<td class=""><%= link_to "destroy", event_post_path(post, @a), method: :delete %></td>
-
-						<td><span class="fas fa-mail"></span></td>
-					</tr>
-				</tbody>
-			</table>
+		
+			<div class="post_index">
+				<div class="row">
+				<div class="Post col-md-8">
+					<h2 class="post_top">Post List</h2>	
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th>イベント名</th>
+								<th>日時</th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @posts.each do |post| %>
+							<tr>
+								<td><%= post.title %></td>
+								<td><%= post.post_date %></td>
+								<td class=""><%= link_to "詳細",  event_post_path(@a ,post) %></td>
+								<td class=""><%= link_to "編集", edit_event_post_path(@event.id, post) %></td>
+								<td class=""><%= link_to "削除", event_post_path(@event.id, post), method: :delete %></td>
+								<td><span class="fas fa-mail"></span></td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
 				</div>
-			<% end %>
-		</div>
+				<div class="post_form col-md-4">
+				<span class="title">メッセージを送ろう！！</span>
+				<%= @current_user.name %><br>
+				<%= @current_user.one_talk %>
+				<%= link_to "ユーザ", user_path(@current_user) %>
 
-		<div class="post_form">
-			<span class="title">メッセージを送ろう！！</span>
-			<%= @current_user.name %><br>
-			<%= @current_user.one_talk %>
-			<%= link_to "ユーザ", user_path(@current_user) %>
-
-		  <%= form_for @post, url: "/events/#{@a}/posts" do |f| %>
-		    <h3>Title</h3>
-		      <%= f.text_field :title, class: "" %>
-		      <%= f.date_field :post_date, class: "" %>
-		        <%#= f.fields_for :post_images do |image| %>
-		        	<%= f.attachment_field :post_images_images, multiple: true %>
-		      <%# end %>
-		      <%= f.submit "祝う", class: "fl_inst2" %>
-		  <% end %>
+				<%= form_for @post, url: "/events/#{@a}/posts" do |f| %>
+				<h3>Title</h3>
+				<%= f.text_field :title, class: "" %>
+				<%= f.date_field :post_date, class: "" %>
+				<%#= f.fields_for :post_images do |image| %>
+				<%= f.attachment_field :post_images_images, multiple: true %>
+				<%# end %>
+				<%= f.submit "祝う", class: "fl_inst2" %>
+				<% end %>
+			</div>
+			</div>	
 		</div>
 	</div>
 </article>

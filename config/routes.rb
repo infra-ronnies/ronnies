@@ -2,6 +2,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :create, :update]
     get "logout" => "users#logout"
     post "login" => "users#login"
+    post "users/eventlogin" => "users#eventlogin"
 
     post "post" => "posts#edit"
     patch "update" => "posts#update"

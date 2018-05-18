@@ -16,18 +16,18 @@
 
 
 				<%= form_for @user, html: {id: 'updateform'} do |f| %>
-					<div class="updatename">
-						<label>名前：</label><%= f.text_field :name %>
-					</div>
-					<div class="updatephoto">
-						<%= f.attachment_field :profile_image%>
-					</div>
-					<div class="updateone">
-						<%= f.text_area :one_talk %>
-					</div>
-					<div class="upsub">
-						<%= f.submit :"編集", class: "btn btn-info" %>
-					</div>
+				<div class="updatename">
+					<label>名前：</label><%= f.text_field :name %>
+				</div>
+				<div class="updatephoto">
+					<%= f.attachment_field :profile_image%>
+				</div>
+				<div class="updateone">
+					<%= f.text_area :one_talk %>
+				</div>
+				<div class="upsub">
+					<%= f.submit :"編集", class: "btn btn-info" %>
+				</div>
 				<% end %>
 			</div>
 			<h1>Your Ronnies</h1>
@@ -35,30 +35,72 @@
 			<div class="showbtn">
 				<a href="/events/new">Create Event</a>
 			</div>
-			
 
-		</div>
-	</div>
-	<div class="showbottom">
-		<div class="showcontainer">
-			
-			<div class="event-space">
-				<ul>
-					<% @eventuser.each do |eventuser| %>
-					<%= link_to event_posts_path(eventuser.event.id) do %>
-						<li>
-							<div class="left">
-								<%= attachment_image_tag eventuser.event, :image, :fill, 100, 100, fallback: "/assets/noima.png" %>
-							</div>
-							<div class="right">
-								<span><%= eventuser.event.event_name %></span>
-							</div>
-						</li><% end %>
-					<% end %>
-				</ul>
+			<!-- event login -->
+			<div class="showbtn">
+				<a class="eventlogin">Log in Event</a>
 			</div>
+
+			<%= form_tag("eventlogin", id: "signin", class: "center-block", style:"padding-top:30px;") do %>
+
+			<div class="form-field">
+				<input type="password" name="password" value="<%=  %>" placeholder="  Event Password">
+			</div>
+			<input type="submit" class="btn-lg btn-primary btn" value="ログイン">
+			<div class="top-back1" style="display: inline-block;cursor: pointer;">戻る</div>
+			<% end %>
+
+			<script type="text/javascript">
+			$(function() {
+				$('.eventlogin').click(function() {
+					$('.topflash').hide();
+					$('.top-title').hide();
+					$('.top-content').hide();
+					$('.showbtn').hide();
+					$('.eventlogin').animate({
+						'top': '140px'
+					}, 1000);
+					setTimeout(function() {
+						$('#signin').show('slow');
+					}, 1000);
+				})
+				$('.top-back1').click(function() {
+					$('#signin').hide('slow');
+					$('.eventlogin').animate({
+						'top': '525'
+					}, 1000);
+					setTimeout(function() {
+						$('.showbtn').show('slow');
+						$('.top-title').show('slow');
+						$('.top-content').show('slow');
+					}, 1000);
+				})
+			})
+			$('#signin').hide();
+		</script>
+
+	</div>
+</div>
+<div class="showbottom">
+	<div class="showcontainer">
+
+		<div class="event-space">
+			<ul>
+				<% @eventuser.each do |eventuser| %>
+				<%= link_to event_posts_path(eventuser.event.id) do %>
+				<li>
+					<div class="left">
+						<%= attachment_image_tag eventuser.event, :image, :fill, 100, 100, fallback: "/assets/noima.png" %>
+					</div>
+					<div class="right">
+						<span><%= eventuser.event.event_name %></span>
+					</div>
+				</li><% end %>
+				<% end %>
+			</ul>
 		</div>
 	</div>
+</div>
 </main>
 
 <script type="text/javascript">
@@ -67,42 +109,42 @@
 		$('#updateform').hide();
 		$('.human').click(function() {
 			if (i==0) {
-	 			$('.showmodal').css("display", "block");
-	 			i++;
-	 		} else {
-	 			$('.showmodal').css("display", "none");
-	 			i--;
-	 		}
-	 	});
-	 	$('.modol').click(function() {
-	 		if (i==0) {
-	 			$('.showmodal').css("display", "none");
-	 			i++;
-	 		} else {
-	 			$('#updateform').hide();
-	 			$('.modalphoto').show();
-	 			$('.modalname').show();
-	 			$('.modalintro').show();
-	 			$('.modalintroduce').show();
-	 			$('.modalclass').show();
-	 			i--;
-	 		}
-	 	})
-	 	$('#modalid').click(function() {
-	 		$('.modalphoto').hide();
-	 		$('.modalname').hide();
-	 		$('.modalintro').hide();
-	 		$('.modalintroduce').hide();
-	 		$('.modalclass').hide();
-	 		$('#updateform').show();
-	 	})
+				$('.showmodal').css("display", "block");
+				i++;
+			} else {
+				$('.showmodal').css("display", "none");
+				i--;
+			}
+		});
+		$('.modol').click(function() {
+			if (i==0) {
+				$('.showmodal').css("display", "none");
+				i++;
+			} else {
+				$('#updateform').hide();
+				$('.modalphoto').show();
+				$('.modalname').show();
+				$('.modalintro').show();
+				$('.modalintroduce').show();
+				$('.modalclass').show();
+				i--;
+			}
+		})
+		$('#modalid').click(function() {
+			$('.modalphoto').hide();
+			$('.modalname').hide();
+			$('.modalintro').hide();
+			$('.modalintroduce').hide();
+			$('.modalclass').hide();
+			$('#updateform').show();
+		})
 	})
- if(gon.count == 0) {
- 	$('.event-space').hide();
- } else {
- 	$('.event-space').show();
- }
- 	
+	if(gon.count == 0) {
+		$('.event-space').hide();
+	} else {
+		$('.event-space').show();
+	}
+
 
 </script>
 
@@ -220,8 +262,10 @@
 .showup h1 {
 	font-size: 72px;
 	padding-top: 120px;
+	padding-left: 8%;
 	color: white;
 	text-align: center;
+
 }
 
 .showup p {
