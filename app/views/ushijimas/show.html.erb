@@ -313,19 +313,19 @@ function autoPlay(){
 				<div class="event-space">
 
 
-<% post.post_comments.each do |post_comment| %>
-<table>
-	 <tr>
-      <td>
-  <br>
-  <%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img" %>
-  <%= post_comment.user.name %>:<%= post_comment.comment %>
-  </td><br>
-  <td></td>
-  </tr>
-</table>
+					<% post.post_comments.each do |post_comment| %>
+					<table>
+						<tr>
+							<td>
+								<br>
+								<%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img" %>
+								<%= post_comment.user.name %>:<%= post_comment.comment %>
+							</td><br>
+							<td></td>
+						</tr>
+					</table>
 
-<% end %>
+					<% end %>
 
 					
 				</div>

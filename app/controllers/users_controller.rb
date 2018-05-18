@@ -5,24 +5,34 @@ class UsersController < ApplicationController
 
 	def create
 		user = User.new(user_params)
-    if user.save
-    	session[:user_id] = user.id
-    	redirect_to user_path(user)
-    else
-    	flash[:notice] = "NameとPasswordを正しく入力してください"
-    	redirect_to root_path
-    end
+		if user.save
+			session[:user_id] = user.id
+			redirect_to user_path(user)
+		else
+			flash[:notice] = "NameとPasswordを正しく入力してください"
+			redirect_to root_path
+		end
+	end
+
+	def eventlogin
+		@event = Event.find_by(event_password: params[:password])
+		if @event.presence
+			redirect_to event_posts_path(@event.id)
+		else
+			flash[:notice] = "Passwordを正しく入力してください"
+			redirect_to user_path(current_user.id)
+		end
 	end
 
 	def login
 		@user = User.find_by(name: params[:name], password: params[:password])
-    if @user
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-  	else
-  		flash[:notice] = "NameとPasswordを正しく入力してください"
-    	redirect_to root_path
-    end
+		if @user
+			session[:user_id] = @user.id
+			redirect_to user_path(@user)
+		else
+			flash[:notice] = "NameとPasswordを正しく入力してください"
+			redirect_to root_path
+		end
 	end
 
 	def logout

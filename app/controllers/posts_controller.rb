@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-  	@posts = Post.all
+  	@posts = Post.where(event_id: params[:event_id])
   	@post = Post.new
   	@post.post_images.build
   	@a = params[:event_id]
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def update
   	post = Post.find(params[:id])
     post.update(post_params)
-    redirect_to event_posts_path(post.event_id)
+    redirect_to event_posts_path(id: post.event_id)
   end
 
   def destroy
